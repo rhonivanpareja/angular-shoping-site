@@ -1,0 +1,140 @@
+@mixin grid() {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: $column-gap;
+}
+
+//-----------------------------------------------------------------------
+//  BREAKPOINTS
+//  usage:
+//    @include breakpoint {
+//      ...your styles here
+//    }
+//-----------------------------------------------------------------------
+
+@mixin xxxxlg-desktop {
+  @media screen and (min-width: $xxxxlg-desktop) {
+    @content;
+  }
+}
+
+@mixin xxxlg-desktop {
+  @media screen and (min-width: $xxxlg-desktop) {
+    @content;
+  }
+}
+
+@mixin xxlg-desktop {
+  @media screen and (min-width: $xxlg-desktop) {
+    @content;
+  }
+}
+
+@mixin xlg-desktop {
+  @media screen and (min-width: $xlg-desktop) {
+    @content;
+  }
+}
+
+@mixin wide {
+  @media screen and (min-width: $wide) {
+    @content;
+  }
+}
+
+@mixin lg-desktop {
+  @media screen and (min-width: $lg-desktop) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: ($sm-desktop + 1)) {
+    @content;
+  }
+}
+
+@mixin desktop-1440 {
+  @media screen and (min-width: $desktop-1440) {
+    @content;
+  }
+}
+
+@mixin sm-desktop {
+  @media screen and (min-width: $sm-desktop) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin tablet-only {
+  @media screen and (min-width: $tablet) and (max-width: ($sm-desktop - 1)) {
+    @content;
+  }
+}
+
+@mixin mobile-tablet {
+  @media screen and (max-width: ($sm-desktop - 1)) {
+    @content;
+  }
+}
+
+@mixin mobile-tablet-landscape {
+  @media screen and (max-width: $sm-desktop) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: ($tablet - 1)) {
+    @content;
+  }
+}
+
+@mixin sm-mobile {
+  @media (max-width: ($mobile - 1)) {
+    @content;
+  }
+}
+
+@mixin touch-device {
+  @media (hover: none) and (pointer: coarse) {
+    @content;
+  }
+}
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+
+  &::before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: calc($height / $width) * 100%;
+  }
+
+  > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+  }
+}

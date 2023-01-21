@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@import './app/sass/reset';
+@import 'swiper/scss';
+@import 'swiper/scss/navigation';
+@import 'swiper/scss/pagination';
+
+body {
+  font-family: Lato;
+  font-size: 16px;
+}

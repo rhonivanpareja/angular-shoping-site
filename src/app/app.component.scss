@@ -1,0 +1,13 @@
+@import './sass/global.scss';
+.header {
+  padding: 0 0 23px;
+  box-shadow: -1px -4px 11px 4px rgb(136 136 136 / 50%);
+
+  &__logo {
+    img {
+      max-width: rem(450);
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="search-form">
+    <label for="product-search">Search for a product</label>
+    <input id="product-search" #search placeholder="Ex: iPhone"><button (click)="searchForProducts(search.value)">Search</button>
+  </div>
+  <div class="products-list">
+    <article *ngFor="let product of products" class="products-list__product-item">
+      <div class="products-list__product-images">
+          <swiper
+            [config]="config"
+            (swiper)="onSwiper($event)"
+            (slideChange)="onSlideChange()"
+          >
+            <ng-template swiperSlide *ngFor="let image of product.images">
+              <div class="products-list__product-images__wrap">
+                <img [src]="image" [alt]="product.title">
+              </div>
+            </ng-template>
+          </swiper>
+      </div>
+      <p>{{product.title}}</p>
+      <p>{{product.description}}</p>
+      <p>${{product.price}}</p>
+    </article>
+  </div>
+</div>
